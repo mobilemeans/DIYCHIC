@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        xmlns:android   = "http://schemas.android.com/apk/res/android"
+        id          = "com.a4c.diy"
+        
+        versionCode = "1" version     = "0.0.0" >
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>DIY CHIC</name>
+    
+    <description>
+Use DIY CHIC to help you with your renovation or DIY projects. Use the Inventory Tracker to create a list of your tools and the Shopping List to remember what items you need for your next project and avoid buying twice and the return lanes. DIY CHIC also includes multiple calculators to help you determine the correct amount of materials and it provides a daily DIY tip guide from several leading DIY sites. If you need to know when the next waste/garbage pickup is scheduled then use our simple to use address feature to find the schedule for your street.					
+    </description>
+    <icon src="icon.png" width="58" height="21"/>
+    <author href="http://www.apps4canadians.ca" email="apps4canadians@live.com">
+        Troy MacFarlane 
+    </author>
+    <gap:splash src="icon.png" />
+    
+    <preference name="permissions" value="none"/>
+    <preference name="android-minSdkVersion"      value="15" />
+    <preference name="phonegap-version" value="3.3.0" />
+<gap:plugin name="org.apache.cordova.inappbrowser" version="0.3.3" />
+<feature name="InAppBrowser">
+    <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    <param name="ios-package" value="CDVInAppBrowser" />
+</feature>
+<access origin="*" />  
+<gap:splash src="Splash.png" />  
+    
+</widget>

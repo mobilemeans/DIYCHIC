@@ -1,0 +1,384 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>DIY CHIC: Calculations</title>
+	<!-- CALC STYLE -->
+	<style type="text/css">
+/*number inputs*/
+input[type="number"] {
+width:50px; height:30px; 
+text-align:left; 
+margin:1px; 
+float:left;}
+
+/*select and equals elements*/
+select, .equals {
+margin:1px; 
+float:left;}
+
+/*output element*/
+output {
+display:block; 
+border:1px solid #333333; 
+border-radius:5px; 
+min-width:25px; height:25px; 
+margin:1px; padding:2px;
+text-align:center; 
+background:#000000; 
+color:#ffffff; 
+float:left; }
+</style>
+
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1" /> 	
+	<!--  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />-->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>	
+	<link rel="stylesheet" href="style.css" />
+	
+	<link rel="stylesheet" href="css/themes/girl.css" />
+  <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" /> 
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+  <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+ <!-- http://www.feedroll.com/rssviewer/index.php?src=http%3A%2F%2Fottawa.kijiji.ca%2Ff-SearchAdRss%3FCatId%3D43%26Location%3D1700184&generate=Generate+JavaScript&tk=&chan=y&num=0&desc=0&au=n&html=a&date=y&tz=feed&targ=y&utf=y&pc=n&rss_box_id= -->
+
+</head> 
+<body> 
+
+  <div data-role="page" id="mainPage">
+	<div data-role="header" data-theme="b">
+	<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6908679240944495";
+/* MobileBanner320by50 */
+google_ad_slot = "7580604750";
+google_ad_width = 320;
+google_ad_height = 50;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+		<div data-role="navbar" >
+			<ul>
+      	<li><a href="http://bsccart.appspot.com/TheMartin/index.html" rel="external" data-transition="slideup" data-prefetch>Home</a></li>
+      			<li><a href="http://bsccart.appspot.com/TheMartin/Inventory.html" rel="external" data-transition="slidedown" data-prefetch>Inventory</a></li>
+				<li><a href="http://bsccart.appspot.com/TheMartin/Shopping.html" rel="external" data-transition="pop" data-prefetch>Shopping</a></li>
+				<li><a href="http://bsccart.appspot.com/TheMartin/Calculators.html" rel="external" data-transition="pop" data-prefetch>Calculators</a></li>
+				<li><a href="http://bsccart.appspot.com/TheMartin/About.html" rel="external" data-transition="slidedown" data-prefetch>About</a></li>
+								
+			</ul>
+		</div><!-- /navbar-->
+	</div><!-- /header -->
+
+	<div id="content" data-role="content">	
+		<div id="banner">
+			<p>DIY Calculations</p>
+		</div>		
+		<div id="blurb">
+		<center><img src="img/bannerSM2.jpg" /></center>
+		
+			<ul data-role="listview" data-inset="true" data-theme="b">
+			
+				<li><h1>Area of a floor</h1>			
+				<ul>
+					<li><a href="#mainPage" data-direction="reverse">Back</a></li>
+					<li>
+						<h2>Calculate Area of a Floor</h2>
+						<p>Use this calculation to find the square footage of the floor to help you plan your flooring projects.</p>
+						<!-- BEGIN CALCS -->
+            <form id="calcA" oninput="updateOutputA()">
+            <div class="item text">
+			<label>Width of room (FT):</label>
+			<input name="a" type="number" value="0" width="10px"/>	
+			<br>
+			<br>		
+			<label>Length of room (FT):</label>
+			<input name="b" type="number" value="0"  width="10px"/>
+			</div>
+            
+           
+               
+            <div class="equals"> ANSWER </div>
+            <output name="z" for="a b">0</output>
+            </form> 	
+            <!--  END CALCS -->
+					<script type="text/javascript">
+                    function updateOutputA() { 
+                    //get form
+                    var form = document.getElementById("calcA");
+                    //get output
+                    var out = form.elements["z"];
+                    //get two numbers
+                    var num1 = parseFloat(form.elements["a"].value);
+                    var num2 = parseFloat(form.elements["b"].value);		
+		
+                    var iSQFT = (num1*num2);  
+                    out.value = "The floor is " + ":" + Math.round(iSQFT) + " square feet.";                             
+                    
+  	
+                }
+            </script>
+        <!-- END CALC STYLE AND LOGIC-->
+					</li>
+					
+				</ul>			
+				</li>				
+				<li><h1>Area of a wall</h1>
+				<ul>
+					<li><a href="#mainPage" data-direction="reverse">Back</a></li>
+					<li>			
+						<h2>Calculate area of a wall</h2>
+						<p>This calculation is a general tool calculating the square footage of a wall to help you plan your painting or wall paper projects.</p>						
+            <form id="calcB" oninput="updateOutputB()">
+            <div class="item text">
+			<label>Width of wall (FT):</label>
+			<input name="a" type="number" value="0" width="10px"/>	
+			<br>
+			<br>		
+			<label>Height of wall (FT):</label>
+			<input name="b" type="number" value="0"  width="10px"/>
+			</div>                             
+            <div class="equals"> ANSWER </div>
+          <output name="z" for="a b">0</output>
+          </form> 	         
+          
+        
+						<script type="text/javascript">
+                function updateOutputB() { 
+                //get form
+                var form = document.getElementById("calcB");
+                //get output
+                var out = form.elements["z"];
+                //get two numbers
+                var num1 = parseFloat(form.elements["a"].value);
+                var num2 = parseFloat(form.elements["b"].value);
+                
+			
+               //Gross Rental Multiplier		 
+               var iSQFT2 = (num1*num2);                  
+              out.value = "The square footage of the wall is " + iSQFT2;          
+                }
+              </script>
+					
+					</li>
+				</ul>
+				</li>	
+				<li><h1># of tiles</h1>
+				<ul>
+					<li><a href="#mainPage" data-direction="reverse">Back</a></li>
+					<li>
+						<h2>Calculate the number of tiles</h2>
+						<p>You will first need to find the area of the space requiring the tiles as shown in the first 2 calcuations.  Then enter the dimensions for one tile.</p>
+						
+            <form id="calcC" oninput="updateOutputC()">
+            <div class="item text">
+			<label>Length of area to be tiled: (FT)</label>
+			<input name="a" type="number" value="0" width="10px"/>	
+			<br>
+			<br>		
+			<label>Width of area to be tiled: (FT)</label>
+			<input name="b" type="number" value="0"  width="10px"/>
+			<br>
+			<br>		
+			<label>Length of one tile: (FT)</label>
+			<input name="c" type="number" value="0"  width="10px"/>
+			<br>
+			<br>		
+			<label>Width of one tile: (FT)</label>
+			<input name="d" type="number" value="0"  width="10px"/>
+			</div>
+            <div class="equals"> ANSWER </div>
+          <output name="z" for="a b c d">0</output>
+          </form> 	
+            
+					<script type="text/javascript">
+function updateOutputC() { 
+		//get form
+	var form = document.getElementById("calcC");
+		//get output
+	var out = form.elements["z"];
+		//get two numbers
+	var num1 = parseFloat(form.elements["a"].value);
+	var num2 = parseFloat(form.elements["b"].value);
+	var num3 = parseFloat(form.elements["c"].value);
+	var num4 = parseFloat(form.elements["d"].value);
+	
+			
+		//Net Operating Income
+		 
+      var iResult = ((num1*num2)/(num3*num4));
+      out.value = "You will required " + iResult + " tiles.";
+		
+}
+
+</script>
+						
+					</li>
+				</ul>
+				</li>			
+				<li><h1># of Cubic Yards</h1>
+				<ul>
+					<li><a href="#mainPage" data-direction="reverse">Back</a></li>
+					<li>
+						<h2>Cubic Yards Calculator</h2>
+						<p>Use this easy calculation to help you plan projects such as topsoil or mulch orders.</p>
+						
+            <form id="calcD" oninput="updateOutputD()">
+             <div class="item text">
+			<label>Length of area to cover: (FT)</label>
+			<input name="a" type="number" value="0" width="10px"/>	
+			<br>
+			<br>		
+			<label>Width of area to cover: (FT)</label>
+			<input name="b" type="number" value="0"  width="10px"/>
+			<br>
+			<br>		
+			<label>Height of area to cover: (FT)</label>
+			<input name="c" type="number" value="0"  width="10px"/>
+			</div>           
+            <div class="equals"> ANSWER </div>
+          <output name="z" for="a b c">0</output>
+          </form> 	
+            
+						<script type="text/javascript">
+function updateOutputD() { 
+		//get form
+	var form = document.getElementById("calcD");
+		//get output
+	var out = form.elements["z"];
+		//get two numbers
+	var num1 = parseFloat(form.elements["a"].value);
+	var num2 = parseFloat(form.elements["b"].value);
+	var num3 = parseFloat(form.elements["c"].value);		
+	
+		//Break-Even Ratio
+	
+      out.value = "You will require approximately " + num1*num2*num3 + " cubic yards.";
+      }
+
+</script>
+						
+					</li>
+				</ul>
+				</li>	
+				
+				<li><h1>30 Sec Real Estate Analyzer</h1>			
+				<ul>
+					<li><a href="#mainPage" data-direction="reverse">Back</a></li>
+					<li>
+						<h2>30 Sec Real Estate Analyzer</h2>
+						<p>Use this calculation to help narrow down properties that should get a 2nd review.  If the answer is "green" or "yellow" then consider a second review, while a "red" indicates a strong likelihood that you should not proceed.</p>
+						<!-- BEGIN CALCS -->
+            <form id="calcF" oninput="updateOutputF()">
+             <div class="item text">
+			<label>Purchase Price:</label>
+			<input name="a" type="number" value="0" width="10px"/>	
+			<br>
+			<br>		
+			<label>Monthly Rent:</label>
+			<input name="b" type="number" value="0"  width="10px"/>
+			</div>
+            <div class="equals"> ANSWER </div>
+            <output name="z" for="a b">0</output>
+            </form> 	
+            <!--  END CALCS -->
+					<script type="text/javascript">
+                    function updateOutputF() { 
+                    //get form
+                    var form = document.getElementById("calcF");
+                    //get output
+                    var out = form.elements["z"];
+                    //get two numbers
+                    var num1 = parseInt(form.elements["a"].value);
+                    var num2 = parseInt(form.elements["b"].value);		
+		
+                    var iPurchase = (num1/12);
+                    var iRent = (num2*10);
+                    if (iPurchase > iRent){
+                        out.value = "RED" + ":" + Math.round(iPurchase) + " is greater than " + Math.round(iRent);           
+                    }
+                    else if (iPurchase == iRent){
+                        out.value = "YELLOW" + ":" + Math.round(iPurchase) + " is equal to " + Math.round(iRent);           
+                    }
+                    else if(iPurchase < iRent){
+                        out.value = "GREEN" + ":" + Math.round(iPurchase) + " is less than " + Math.round(iRent);             
+                    }
+                    else {
+                        num1=0;
+                        num2=0;
+                    }
+                    
+                    
+  	
+                }
+            </script>
+        <!-- END CALC STYLE AND LOGIC-->
+					</li>
+				</ul>
+				</li>
+				
+				<li><h1>Gross Potential Income</h1>
+				<ul>
+					<li><a href="#mainPage" data-direction="reverse">Back</a></li>
+					<li>
+						<h2>Gross Potential Income</h2>
+						<p>If you're renovating homes then use the gross potential income to determine the expected income a property will produce without deductions for expected vacancy or credit loss.</p>
+					
+            <form id="calcE" oninput="updateOutputE()">
+             <div class="item text">
+			<label># of Units Type 1:</label>
+			<input name="a" type="number" value="0" width="10px"/>	
+			<br>
+			<br>		
+			<label>Monthly Rent Per Month for Type 1:</label>
+			<input name="b" type="number" value="0"  width="10px"/>
+			<br>
+			<br>
+			<label># of Units Type 2:</label>
+			<input name="a" type="number" value="0" width="10px"/>	
+			<br>
+			<br>
+			<label>Monthly Rent Per Month for Type 2:</label>
+			<input name="a" type="number" value="0" width="10px"/>	
+			</div>             
+          <div class="equals"> ANSWER </div>
+          <output name="z" for="a b c d">0</output>
+          </form> 	
+            
+						<script type="text/javascript">
+function updateOutputE() { 
+		//get form
+	var form = document.getElementById("calcE");
+		//get output
+	var out = form.elements["z"];
+		//get two numbers
+	var num1 = parseFloat(form.elements["a"].value);
+	var num2 = parseFloat(form.elements["b"].value);
+	var num3 = parseFloat(form.elements["c"].value);
+	var num4 = parseFloat(form.elements["d"].value);
+	
+		//Gross Potential Income
+	      out.value = "$" + ((num1*num2)*12+(num3*num4)*12)	  
+}
+
+</script>
+						
+					</li>
+				</ul>
+				</li>				
+			</ul>
+		</div><!-- /blurb -->	
+			
+		<div id="footer"><center>
+		<img src="img/A4C.jpg" />
+			&copy; Apps4Canadians
+			</center>
+			<br>
+	<center>- <a href="http://bsccart.appspot.com/TheMartin/index.html" rel="external" data-transition="slideup" data-prefetch>Home</a>- <a href="mailto:apps4canadians@live.com">Contact</a> - </center>
+			
+		</div><!-- /footer -->
+	</div><!-- /content -->
+</div><!-- /page -->
+</body>
+</html>

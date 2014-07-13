@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>DIY CHIC: Inventory</title>
+	
+	
+	<!--  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>	
+	--><link rel="stylesheet" href="style.css" />
+	
+	<link rel="stylesheet" href="http://bsccart.appspot.com/TheMartin/css/themes/girl.css" />
+  <link rel="stylesheet" href="http://bsccart.appspot.com/TheMartin/css/themes/jquery.mobile.icons.min.css" />
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" /> 
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+  <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+
+	
+	
+	<style>
+		a { color: #0068D2; cursor: pointer; }
+		a:link, a:visited { text-decoration: none; color: #0068D2; }
+		a:hover, a:active { text-decoration: underline; color: #0068D2; }
+		body { font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", sans-serif; background: red;}
+
+		#projects-table { border-collapse: collapse; }
+		#projects-table, #projects-table th, #projects-table td { padding: 10px 15px;  border: 0px solid #B9BABE; }
+		#projects-table th { font-weight: bold; font-size: 14px; color: #29344B; }
+		#projects-table td { color: #000; }
+		#projects-table tr:nth-child(2n) { background: lightpink; }	
+
+		#projects-form { padding: 10px; }
+		.text input, .button input { padding: 5px; margin: 0; border: 1px solid #ccc; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; }
+		#projects-form .item { margin: 3px 0; }
+		#projects-form label, #projects-form .field { display: inline-block; color: #0C0B07; }
+		#projects-form label { width: 110px; font-weight: bold; text-align: right; color: #666; }
+		#projects-form .text input { width: 176px; padding: 3px; }
+		#projects-form .button { display: inline-block; }
+		#projects-form .button-wrapper { padding-left: 113px; }
+		.button input { padding: 4px 8px; color: #343434; background-color: #fdfdfd; background: -moz-linear-gradient(#fdfdfd, #e1e1e1); background: -webkit-gradient(linear, 0 0, 0 100%, from(#fdfdfd), to(#e1e1e1)); }
+		.button-default input { font-weight: bold; color: #fff; background-color: #7ca0c7; background: -moz-linear-gradient(#acc6e1, #7ca0c7); background: -webkit-gradient(linear, 0 0, 0 100%, from(#acc6e1), to(#7ca0c7)); border-color: #5b80b2; }
+	</style>
+	
+</head>
+<body>
+<div data-role="page" data-theme="b">
+	<div data-role="header" data-theme="b">
+	<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6908679240944495";
+/* MobileBanner320by50 */
+google_ad_slot = "7580604750";
+google_ad_width = 320;
+google_ad_height = 50;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+		<div data-role="navbar">
+			<ul>
+				<li><a href="http://bsccart.appspot.com/TheMartin/index.html" rel="external" data-transition="slideup" data-prefetch>Home</a></li>
+      			<li><a href="http://bsccart.appspot.com/TheMartin/Inventory.html" rel="external" data-transition="slidedown" data-prefetch>Inventory</a></li>
+				<li><a href="http://bsccart.appspot.com/TheMartin/Shopping.html" rel="external" data-transition="pop" data-prefetch>Shopping</a></li>
+				<li><a href="http://bsccart.appspot.com/TheMartin/Calculators.html" rel="external" data-transition="pop" data-prefetch>Calculators</a></li>
+				<li><a href="http://bsccart.appspot.com/TheMartin/About.html" rel="external" data-transition="slidedown" data-prefetch>About</a></li>													
+			</ul>
+		</div><!-- /navbar-->
+	</div><!-- /header -->
+
+	<div role="main" >
+		
+		<img src="img/bannerSM2.jpg" />
+		<h2>Inventory Tracker</h2>	
+
+			<div data-demo-html="true">
+				<form>
+					<input id="filterTable-input" data-type="search"></input>
+				</form>
+				<table data-role="table" data-mode="columntoggle" id="projects-table" data-filter="true" data-input="#filterTable-input" class="ui-responsive">
+					<thead>
+						<tr id="projects-head" class="ui-responsive">
+							<th data-priority="1">Id</th>
+							<th data-priority="2">Item</th>	
+							<th data-priority="3">Location</th>
+							<th data-priority="4">Note</th>							
+						</tr>
+						</thead>
+						
+					</table>
+					<form id="projects-form">
+		<div class="item text">
+			<label>Item:</label>
+			<div class="field"><input type="text" name="item_name" /></div>
+		</div>
+		<div class="item text">
+			<label>Location:</label>
+			<div class="field"><input type="text" name="quantity" /></div>
+		</div>
+		<div class="item text">
+			<label>Notes:</label>
+			<div class="field"><input type="text" name="notes" /></div>
+		</div>
+		<div class="button-wrapper">
+			<div class="item button">
+				<div class="field"><input type="button" id="projects-op-discard" value="Clear" /></div>
+			</div>
+			<div class="item button button-default">
+				<div class="field"><input type="submit" id="projects-op-save" value="Save" /></div>
+			</div>
+			<br>
+			
+		</div>
+		<input type="hidden" name="id_entry" value="0" />
+	</form>
+			</div><!--/demo-html -->		
+	</div><!-- /panel -->
+
+
+	
+
+
+<script>
+		var Projects = {
+			index: window.localStorage.getItem("Projects:index"),
+			$table: document.getElementById("projects-table"),
+			$form: document.getElementById("projects-form"),
+			$button_save: document.getElementById("projects-op-save"),
+			$button_discard: document.getElementById("projects-op-discard"),
+			
+			
+
+			init: function() {
+				// initialize storage index
+				if (!Projects.index) {
+					window.localStorage.setItem("Projects:index", Projects.index = 1);
+				}
+
+				// initialize form
+				Projects.$form.reset();
+				Projects.$button_discard.addEventListener("click", function(event) {
+					Projects.$form.reset();
+					Projects.$form.id_entry.value = 0;
+				}, true);
+				Projects.$form.addEventListener("submit", function(event) {
+					var entry = {
+						id: parseInt(this.id_entry.value),
+						item_name: this.item_name.value,
+						quantity: this.quantity.value,
+						notes: this.notes.value
+					};
+					if (entry.id == 0) { // add
+						Projects.storeAdd(entry);
+						Projects.tableAdd(entry);
+					}
+					else { // edit
+						Projects.storeEdit(entry);
+						Projects.tableEdit(entry);
+					}
+
+					this.reset();
+					this.id_entry.value = 0;
+					event.preventDefault();
+				}, true);
+				
+			
+				// initialize table
+				if (window.localStorage.length - 1) {
+					var projects_list = [], i, key;
+					for (i = 0; i < window.localStorage.length; i++) {
+						key = window.localStorage.key(i);
+						if (/Projects:\d+/.test(key)) {
+							projects_list.push(JSON.parse(window.localStorage.getItem(key)));
+						}
+					}
+
+					if (projects_list.length) {
+						projects_list
+							.sort(function(a, b) {
+								return a.id < b.id ? -1 : (a.id > b.id ? 1 : 0);
+							})
+							.forEach(Projects.tableAdd);
+					}
+				}
+				Projects.$table.addEventListener("click", function(event) {
+					var op = event.target.getAttribute("data-op");
+					if (/edit|remove/.test(op)) {
+						var entry = JSON.parse(window.localStorage.getItem("Projects:"+ event.target.getAttribute("data-id")));
+						if (op == "edit") {
+							Projects.$form.item_name.value = entry.item_name;
+							Projects.$form.quantity.value = entry.quantity;
+							Projects.$form.notes.value = entry.notes;
+							Projects.$form.id_entry.value = entry.id;
+						}
+						else if (op == "remove") {
+							if (confirm('Are you sure you want to remove "'+ entry.item_name +' '+ entry.quantity +'" from your projects?')) {
+								Projects.storeRemove(entry);
+								Projects.tableRemove(entry);
+							}
+						}
+						event.preventDefault();
+					}
+				}, true);
+			},
+
+			storeAdd: function(entry) {
+				entry.id = Projects.index;
+				window.localStorage.setItem("Projects:index", ++Projects.index);
+				window.localStorage.setItem("Projects:"+ entry.id, JSON.stringify(entry));
+			},
+			storeEdit: function(entry) {
+				window.localStorage.setItem("Projects:"+ entry.id, JSON.stringify(entry));
+			},
+			storeRemove: function(entry) {
+				window.localStorage.removeItem("Projects:"+ entry.id);
+			},
+
+			tableAdd: function(entry) {
+				var $tr = document.createElement("tr"), $td, key;
+				for (key in entry) {
+					if (entry.hasOwnProperty(key)) {
+						$td = document.createElement("td");
+						$td.appendChild(document.createTextNode(entry[key]));
+						$tr.appendChild($td);
+					}
+				}
+				$td = document.createElement("td");
+				$td.innerHTML = '<a data-op="edit" data-id="'+ entry.id +'">Edit</a> | <a data-op="remove" data-id="'+ entry.id +'">Remove</a>';
+				$tr.appendChild($td);
+				$tr.setAttribute("id", "entry-"+ entry.id);
+				Projects.$table.appendChild($tr);
+			},
+			tableEdit: function(entry) {
+				var $tr = document.getElementById("entry-"+ entry.id), $td, key;
+				$tr.innerHTML = "";
+				for (key in entry) {
+					if (entry.hasOwnProperty(key)) {
+						$td = document.createElement("td");
+						$td.appendChild(document.createTextNode(entry[key]));
+						$tr.appendChild($td);
+					}
+				}
+				$td = document.createElement("td");
+				$td.innerHTML = '<a data-op="edit" data-id="'+ entry.id +'">Edit</a> | <a data-op="remove" data-id="'+ entry.id +'">Remove</a>';
+				$tr.appendChild($td);
+			},
+			tableRemove: function(entry) {
+				Projects.$table.removeChild(document.getElementById("entry-"+ entry.id));
+			}
+		};
+		Projects.init();
+	</script>
+	
+	<div id="footer"><center>
+		<img src="img/A4C.jpg" />
+			&copy; Apps4Canadians
+			</center>
+			<br>
+	<center><a href="http://bsccart.appspot.com/TheMartin/index.html" rel="external" data-transition="slideup" data-prefetch>Home</a>- <a href="mailto:apps4canadians@live.com">Contact</a> - </center>
+			
+		</div><!-- /footer -->
+
+</div><!-- /page -->
+</body>
+</html>

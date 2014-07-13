@@ -1,0 +1,147 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>DIY CHIC</title> 	
+	<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>	
+	<link rel="stylesheet" href="style.css" />
+	
+	
+	<script type="text/javascript">
+ 
+//<![CDATA[
+// array of possible countries in the same order as they appear in the country selection list
+var countryLists = new Array(4)
+countryLists["empty"] = ["Select your Country"];
+countryLists["Canada"] = ["Select your region", "Ottawa", "Halton", "Kingston", "Simcoe", "Regina", "Saskatoon", "Coquitlam", "Langley", "Saanich", "Vancouver", "Victoria", "PortMoody", "WhiteRock", "ThunderBay", "Richmond", "Squamish", "Surrey", "Whitehorse", "Yellowknife"];
+countryLists["USA"] = ["Select your region", "ClarkCounty", "Vancouver", "Olathe", "Lowell", "Columbus"];
+countryLists["Asia"] = ["Russia", "China", "Japan"];
+countryLists["Europe"]= ["Britain", "France", "Spain", "Germany"];
+/* CountryChange() is called from the onchange event of a select element.
+ * param selectObj - the select object which fired the on change event.
+  
+  saved to show PROV/STATE
+  countryLists["Canada"] = ["Select your region", "Ottawa", "Halton ON", "Kingston ON", "Simcoe County ON", "Regina SK", "Saskatoon SK", "Coquitlam BC", "Langley BC", "Saanich BC", "Vancouver", "Victoria BC", "Port Moody BC", "White Rock BC", "Thunder Bay ON", "Richmond BC", "Squamish BC", "Surrey BC", "Whitehorse YT", "Qualicum Beach BC", "Yellowknife NT"];
+countryLists["USA"] = ["Select your region", "Clark County WA", "Vancouver WA", "Olathe KS", "Lowell MA", "Columbus OH"];
+
+ 
+ */
+ 
+
+ 
+function countryChange(selectObj) {
+	// get the index of the selected option
+	var idx = selectObj.selectedIndex;
+	// get the value of the selected option
+	var which = selectObj.options[idx].value;
+	// use the selected option value to retrieve the list of items from the coutnryLists array
+	cList = countryLists[which];
+	// get the country select element via its known id
+	var cSelect = document.getElementById("country");
+	// remove the current options from the country select
+	var len=cSelect.options.length;
+	while (cSelect.options.length > 0) {
+		cSelect.remove(0);
+	}
+	var newOption;
+	// create new options
+	for (var i=0; i<cList.length; i++) {
+		newOption = document.createElement("option");
+		newOption.value = cList[i];  // assumes option string and value are the same
+		newOption.text=cList[i];
+		// add the new option
+		try {
+			cSelect.add(newOption);  // this will fail in DOM browsers but is needed for IE
+		}
+		catch (e) {
+			cSelect.appendChild(newOption);
+
+		}
+	}
+	
+}
+
+function regionChange(selectObj) {
+	var idx = selectObj.selectedIndex;
+	which = selectObj.options[idx].value;
+	showWidget(which);
+	
+}
+function showWidget(x){
+	localStorage.setItem("myCity", x);
+	window.location.href = 'http://bsccart.appspot.com/TheMartin/Widget.html';        
+}
+
+
+//]]>
+</script>
+	
+
+	
+	
+	
+	</head> 
+<body> 
+<div data-role="page">
+	<div data-role="header" data-theme="e">
+	<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6908679240944495";
+/* MobileBanner320by50 */
+google_ad_slot = "7580604750";
+google_ad_width = 320;
+google_ad_height = 50;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+		<div data-role="navbar">
+			<ul>
+      			<li><a href="http://bsccart.appspot.com/TheMartin/index.html" rel="external" data-transition="slideup" data-prefetch>Home</a></li>
+      			<li><a href="http://bsccart.appspot.com/TheMartin/Inventory.html" rel="external" data-transition="slidedown" data-prefetch>Inventory</a></li>
+				<li><a href="http://bsccart.appspot.com/TheMartin/Shopping.html" rel="external" data-transition="pop" data-prefetch>Shopping</a></li>
+				<li><a href="http://bsccart.appspot.com/TheMartin/Calculators.html" rel="external" data-transition="pop" data-prefetch>Calculators</a></li>
+				<li><a href="http://bsccart.appspot.com/A4CMain/index.html" rel="external" data-transition="pop" data-prefetch>More Apps</a></li>								
+			</ul>
+		</div><!-- /navbar-->
+	</div><!-- /header -->
+
+	<div id="content" data-role="content">
+		<div id="me" class="normal">
+			
+			
+		</div>		
+		<div id="banner">			
+		</div>
+		
+		<div id="blurb">
+		<img src="img/bannerSM2.jpg" />
+			<label for="continent">Select your country</label>
+			<select id="continent" onchange="countryChange(this);">
+			<option value="empty">Select your country</option>
+			<option value="Canada">Canada</option>
+			<option value="USA">USA</option>
+			</select>
+			<br />
+			<label for="country">Select a region</label>
+			<select id="country" onchange="regionChange(this);">>
+			<option value="0">Select a region</option>
+			</select>
+		</div><!-- /blurb -->	
+		
+			
+		<div id="footer"><center>
+		<img src="img/A4C.jpg" />
+			&copy; Apps4Canadians
+			</center>
+			<br>
+	<center><a href="http://bsccart.appspot.com/TheMartin/index.html" rel="external" data-transition="slideup" data-prefetch>Home</a>- <a href="mailto:apps4canadians@live.com">Contact</a> - </center>
+			
+		</div><!-- /footer -->
+	</div><!-- /content -->
+</div><!-- /page -->
+</body>
+</html>
